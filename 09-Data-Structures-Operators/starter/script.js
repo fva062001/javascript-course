@@ -5,7 +5,6 @@ const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
-
 //- Object literals
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
@@ -314,46 +313,114 @@ const restaurant = {
 // console.log(p, q, r);
 
 //- Coding Challenge #1
-// const game = {
-//   team1: 'Bayern Munich',
-//   team2: 'Borrussia Dortmund',
-//   players: [
-//     [
-//       'Neuer',
-//       'Pavard',
-//       'Martinez',
-//       'Alaba',
-//       'Davies',
-//       'Kimmich',
-//       'Goretzka',
-//       'Coman',
-//       'Muller',
-//       'Gnarby',
-//       'Lewandowski',
-//     ],
-//     [
-//       'Burki',
-//       'Schulz',
-//       'Hummels',
-//       'Akanji',
-//       'Hakimi',
-//       'Weigl',
-//       'Witsel',
-//       'Hazard',
-//       'Brandt',
-//       'Sancho',
-//       'Gotze',
-//     ],
-//   ],
-//   score: '4:0',
-//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-//   date: 'Nov 9th, 2037',
-//   odds: {
-//     team1: 1.33,
-//     x: 3.25,
-//     team2: 6.5,
-//   },
-// };
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+const gameEvents = new Map([
+  [17, '⚽ GOAL'],
+  [36, '� Substitution'],
+  [47, '⚽ GOAL'],
+  [61, '� Substitution'],
+  [64, '� Yellow card'],
+  [69, '� Red card'],
+  [70, '� Substitution'],
+  [72, '� Substitution'],
+  [76, '⚽ GOAL'],
+  [80, '⚽ GOAL'],
+  [92, '� Yellow card'],
+]);
+
+//- STRINGS
+
+// const airline = 'TAP Air Portugal';
+// const plane = 'A320';
+
+// console.log('B737'[0]);
+
+const list = [
+  'underscore_case',
+  ' first_name ',
+  'Some_Variable',
+  ' calculate_AGE',
+  'delayed_departure',
+];
+
+const finalArray = [];
+for (const n of list) {
+  const word = n.trim();
+  const toLower = word.toLowerCase();
+  const firstHalf = toLower.split('_')[0];
+  const secondHalf = toLower.split('_')[1];
+  const replace = secondHalf.replace(
+    secondHalf[0],
+    secondHalf[0].toUpperCase()
+  );
+
+  const finalWord = firstHalf + replace;
+  finalArray.push(finalWord);
+}
+
+console.log(finalArray);
+
+// //Coding Challenge #3
+
+// //1.
+
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
+
+// //2.
+// gameEvents.delete(64);
+// console.log(gameEvents);
+
+// //3.
+// console.log(
+//   `An event happened, on average, every ${90 / gameEvents.size} minutes`
+// );
+
+// //4.
+// for (const [index, item] of gameEvents.entries()) {
+//   const half = index <= 45 ? 'FIRST HALF' : 'SECOND HALF';
+//   console.log(`[${half}] ${index}: ${item}`);
+// }
 
 // // 1. Create one player array for each team (variables 'players1' and
 // // 'players2')
